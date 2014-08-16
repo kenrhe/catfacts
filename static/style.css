@@ -1,7 +1,7 @@
 
 .page-header { text-align: center; }
 #phone-input { margin-bottom: 1%; }
-#phone-input-global { text-align: center; padding: 1% 2%; border-radius: 6px; border: 1px solid #eee; width: auto; }
+#phone-input-global { text-align: center; padding: 1% 2%; border-radius: 6px; border: 1px solid #eee; width: auto; font-size: 15px; }
 .create-box { max-width: 330px; margin: 0 auto; }
 .create-box { max-width: 330px; margin: 0 auto; }
 .main-container { max-width: 1048px; margin: 100px auto 0; }
