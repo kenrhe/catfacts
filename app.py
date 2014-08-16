@@ -26,10 +26,14 @@ def index():
 	#send_message('2012500807', 'Ken is so sexy.')
 	return render_template("index.html")
 
+@app.route('/create')
 def create():
 	if request.method == 'POST':
 		list_name=request.form['list_name']
 		fact=request.form['fact']
+
+		facts_db.update({'name':list_name}, {'$push' : {fact}})
+		return redirect('/create')
 	return render_template('create.html')
 
 def send_message(to_number, body_message):
