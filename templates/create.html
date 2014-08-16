@@ -34,7 +34,7 @@
 			<input class="btn" name="submit" type="submit" value="create">
 		</form>
 		<form name="create_fact" action="/create" method="POST">
-			<select name="list">
+			<select name="list" class="selectpicker">
 				{% for fact in facts %}
 					<option value='{{ fact['name'] }}'>{{ fact['name'] }}</option>
 				{% endfor %}
