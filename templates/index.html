@@ -11,48 +11,22 @@
 </div>
 
 <div class="main-container">
-<h3>Random facts list
-	<small>
-		<form>
-    		Phone # <input id="phone-input" type="text" name="phonenum">
-    	</form>
-	</small>
-</h3>
+<h3>Random facts list</h3>
+	<form method="post">
+	Phone # <input id="phone-input" type="text" name="phonenum">
 
 	<table class="table">
 	  <tr>
-	    <td><strong></strong> </td>
-	    <td>
-	    	<form>
-	    		<input type="hidden" name="phonenum-hidden">
-	    	</form>
-	    </td>
-	    <td><button type="button" class="btn">Send</button></td>
+	    <td><strong>Fact</strong> </td>
 	  </tr>
 	  {% for fact in facts %}
 	  <tr>
 	    <td>{{ fact }}</td>
-	    <td>
-	    	<form>
-	    		<input type="hidden" name="phonenum-hidden">
-	    	</form>
-	    </td>
-	    <td><button type="button" class="btn">Send</button></td>
+	    <td><input type="submit" class="btn" value="Send"></td>
 	  </tr>
 	  {% endfor %}
 	</table>
+	</form>
 </div>
 </body>
 </html>
-
- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
- <script>
- 	(function($) {
-
-		$( '#phone-input' ).change(function() {
-			console.log("input area changed");
-		});
-
- 	})(jQuery)
- </script>
