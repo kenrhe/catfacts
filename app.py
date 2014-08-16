@@ -25,10 +25,12 @@ facts_db = db.facts
 @app.route('/')
 def index():
 	#send_message('2012500807', 'Ken is so sexy.')
-	doc_count = facts_db.count()
-	col_index = random.randint(0, doc_count)
-	return render_template("index.html", facts=facts_db.find()[col_index]['facts'])
-
+	try:
+		doc_count = facts_db.count()
+		col_index = random.randint(0, doc_count)
+		return render_template("index.html", facts=facts_db.find()[col_index]['facts'])
+	except Exception as e:
+		print e.getMessage()
 @app.route('/send', methods=['POST'])
 def send():
 	if request.method == 'POST':
