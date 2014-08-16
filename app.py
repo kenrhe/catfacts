@@ -5,6 +5,7 @@ import hashlib
 
 import datetime
 import pymongo
+import random
 
 from pymongo import MongoClient
 from twilio.rest import TwilioRestClient
@@ -24,7 +25,14 @@ facts_db = db.facts
 @app.route('/')
 def index():
 	#send_message('2012500807', 'Ken is so sexy.')
-	return render_template("index.html", facts=facts_db.find_one({'name' : 'cats'})['facts'])
+	doc_count = facts_db.count()
+	col_index = random.randint(0, doc_count)
+	return render_template("index.html", facts=facts_db.find()[col_index])
+
+@app.route('/send', methods=['POST'])
+def send():
+	if request.method == 'POST':
+
 
 @app.route('/create', methods=['GET','POST'])
 def create():
@@ -36,13 +44,6 @@ def create():
 			list_name = request.form['list']
 			fact = request.form['fact']
 			facts_db.update({'name':list_name}, {'$push': {'facts':fact}}, True)
-			# list_name=request.form['list']
-			# fact={request.form['fact']}
-
-			# #facts_db.update({'name':list_name}, {'$push' : {fact}})
-			# fact_list = facts_db.find_one({'name' : list_name})
-
-			# facts_db.update({'name':list_name}, {'$set':fact})
 		return redirect('/create')
 	return render_template('create.html')
 
