@@ -6,6 +6,7 @@ import hashlib
 import datetime
 import pymongo
 import random
+import uuid
 
 from pymongo import MongoClient
 from twilio.rest import TwilioRestClient
@@ -46,7 +47,7 @@ def create():
 				facts_db.insert(fact_list);
 			elif request.form['submit'] == 'add':
 				list_name = request.form['list']
-				fact = request.form['fact']
+				fact = {uuid.uuid4():request.form['fact']}
 				facts_db.update({'name':list_name}, {'$push': {'facts':fact}}, True)
 			return redirect('/create')
 		except Exception, e:
