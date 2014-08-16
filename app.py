@@ -30,11 +30,11 @@ def index():
 def create():
 	if request.method == 'POST':
 		if request.form['submit'] == 'create':
-			#fact_list = {'name':request.form['list']}
-			#facts_db.insert(fact_list);
+			fact_list = {'name':request.form['list']}
+			facts_db.insert(fact_list);
 		elif request.form['submit'] == 'add':
-			#list_name = request.form['list']
-			#fact_list = facts_db.find_one({'name':list_name})
+			list_name = request.form['list']
+			fact_list = facts_db.find_one({'name':list_name})
 
 		return redirect('/create')
 	return render_template('create.html')
