@@ -30,21 +30,21 @@
 
 		<div class="main-container">
 			<div class="page-header">
-				<h2>Welcome to Facts Me Up!
-					<small>
-						<input id="phone-input-global" name="phone_number_global" type="text" placeholder="Enter Phone Number Here">
-					</small>
-				</h2>
+				<h2>Welcome to Facts Me Up!</h2>
 			</div>
 			{{ message }}
-			<h3>Random facts list</h3>
+			<h3>Random facts list
+				<small>
+					<input id="phone-input-global" name="phone_number_global" type="text" placeholder="Enter Phone Number Here">
+				</small>
+			</h3>
 				<table class="table">
 			  		{% for fact in facts %}
 			  		<form method="post" action='/send' name='send'>
 			  			<input name='selected_fact' type='hidden' value='{{ fact }}'>
 				  		<tr>
 					    	<td>{{ fact }}</td>
-					    	<td><input id="phone-input" type="text" name="phone_number"></td>
+					    	<td><input id="phone-input" type="hidden" name="phone_number"></td>
 					    	<td><input name="submit" type="submit" class="btn" value="send"></td>
 					  	</tr>
 				  	</form>
@@ -60,8 +60,8 @@
 (function($) {
 	
 	$( '#phone-input-global' ).change(function() {
-		$( 'td input#phone-input' ).each(function() {
-			$( this ).val($( '$phone-input-global' ).val());
+		$( '#phone-input' ).each(function() {
+			$( this ).val($( '#phone-input-global' ).val());
 	});
 
 })(jQuery)
