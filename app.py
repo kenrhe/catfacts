@@ -28,14 +28,16 @@ def index():
 	try:
 		doc_count = facts_db.count()-1
 		col_index = random.randint(0, doc_count)
-		return render_template("index.html", facts=facts_db.find()[col_index]['facts'])
+		return render_template("index.html", facts=facts_db.find()[col_index]['facts'], list_name=facts_db.find()[col_index]['name'])
 	except Exception, e:
 		print "[EXCEPTION ERROR] " + e
 
 @app.route('/send', methods=['POST'])
 def send():
 	if request.method == 'POST':
-		pass
+		fact = 
+		return redirect('/')
+	return redirect('/')
 
 @app.route('/create', methods=['GET','POST'])
 def create():

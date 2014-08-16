@@ -31,15 +31,15 @@
 			<div class="page-header">
 				<h2>Welcome to Facts Me Up!</h2>
 			</div>
-
+			{{ message }}
 			<h3>Random facts list</h3>
-			<form method="post">
+			<form method="post" action='/send' name='send'>
 				Phone # <input id="phone-input" type="text" name="phonenum">
 				<table class="table">
 			  		{% for fact in facts %}
 			  		<tr>
-				    	<td>{{ fact }}</td>
-				    	<td><input type="submit" class="btn" value="Send"></td>
+				    	<td><input name='fact_text' value='{{ fact }}'></td>
+				    	<td><input name="submit" type="submit" class="btn" value="send"></td>
 				  	</tr>
 				  	{% endfor %}
 				</table>
