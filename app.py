@@ -29,10 +29,10 @@ def index():
 @app.route('/create', methods=['GET','POST'])
 def create():
 	if request.method == 'POST':
-		if request.form['submit'] == 'Create List':
+		if request.form['submit'] == 'create':
 			fact_list = {'name':request.form['list']}
 			facts_db.insert(fact_list);
-		elif request.method == 'Add Fact':
+		elif request.method == 'add':
 			list_name = request.form['list']
 			fact_list = facts_db.find_one({'name':list_name})
 
