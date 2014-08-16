@@ -32,7 +32,7 @@ def create():
 		list_name=request.form['list']
 		fact=request.form['fact']
 
-		facts_db.update({'name':list_name}, {'$push' : {fact}})
+		#facts_db.update({'name':list_name}, {'$push' : {fact}})
 		return redirect('/create')
 	return render_template('create.html')
 
