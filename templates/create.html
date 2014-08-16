@@ -36,7 +36,7 @@
 		<form name="create_fact" action="/create" method="POST">
 			<select name="list">
 				{% for fact in facts %}
-					<option value='{{ fact['name'] }}'></option>
+					<option value='{{ fact['name'] }}'>{{ fact['name'] }}</option>
 				{% endfor %}
 			</select>
 			<input type="text" name="fact" placeholder="Fact"><br>
