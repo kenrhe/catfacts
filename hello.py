@@ -7,6 +7,8 @@ import datetime
 import pymongo
 from pymongo import MongoClient
 
+import twilio
+
 app = Flask(__name__)
 
 MONGO_URL = os.environ.get('MONGOHQ_URL')
@@ -38,7 +40,7 @@ def index():
 	# 		red+=points
 	# 	else:
 	# 		blue+=points
-
+	send_message("+12018031802", "hello")
 	return render_template("index.html")
 
 # @app.route('/scores')
