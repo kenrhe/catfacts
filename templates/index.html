@@ -14,14 +14,24 @@
 <h3>Random facts list</h3>
 	<table class="table">
 	  <tr>
-	    <td> <strong>#</strong> </td>
-	    <td> <strong>Fact</strong> </td>
+	    <td><strong>#</strong></td>
+	    <td><strong>Fact</strong> </td>
+	    <td>
+	    	<form>
+	    		Phone # <input type="text" name="phonenum">
+	    	</form>
+	    </td>
 	    <td><button type="button" class="btn">Send</button></td>
 	  </tr>
 	  {% for fact in facts %}
 	  <tr>
 	    <td>{{ fact['number'] }}</td>
 	    <td>{{ fact['text'] }}</td>
+	    <td>
+	    	<form>
+	    		Phone # <input type="text" name="phonenum">
+	    	</form>
+	    </td>
 	    <td><button type="button" class="btn">Send</button></td>
 	  </tr>
 	  {% endfor %}
