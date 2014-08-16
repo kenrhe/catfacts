@@ -38,9 +38,9 @@ def index():
 	# 		red+=points
 	# 	else:
 	# 		blue+=points
+	print(os.getcwd())
 
-
-	return render_template("index.html", os=os.getcwd())
+	return render_template("index.html")
 
 # @app.route('/scores')
 # def scores():
