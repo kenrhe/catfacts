@@ -40,14 +40,17 @@ def send():
 @app.route('/create', methods=['GET','POST'])
 def create():
 	if request.method == 'POST':
-		if request.form['submit'] == 'create':
-			fact_list = {'name':request.form['list']}
-			facts_db.insert(fact_list);
-		elif request.form['submit'] == 'add':
-			list_name = request.form['list']
-			fact = request.form['fact']
-			facts_db.update({'name':list_name}, {'$push': {'facts':fact}}, True)
-		return redirect('/create')
+		try:
+			if request.form['submit'] == 'create':
+				fact_list = {'name':request.form['list']}
+				facts_db.insert(fact_list);
+			elif request.form['submit'] == 'add':
+				list_name = request.form['list']
+				fact = request.form['fact']
+				facts_db.update({'name':list_name}, {'$push': {'facts':fact}}, True)
+			return redirect('/create')
+		except Exception, e:
+			print "[EXCEPTION ERROR] " + e
 	return render_template('create.html')
 
 def send_message(to_number, body_message):
