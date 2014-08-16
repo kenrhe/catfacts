@@ -23,8 +23,14 @@ facts_db = db.facts
 
 @app.route('/')
 def index():
-	send_message('2012500807', 'Ken is so sexy.')
+	#send_message('2012500807', 'Ken is so sexy.')
 	return render_template("index.html")
+
+def create():
+	if request.method == 'POST':
+		list_name=request.form['list_name']
+		fact=request.form['fact']
+	return render_template('create.html')
 
 def send_message(to_number, body_message):
     client = TwilioRestClient(ACCOUNT_SID, AUTH_TOKEN)
