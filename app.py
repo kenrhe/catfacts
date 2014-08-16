@@ -19,7 +19,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-	send_message('2012500807', 'Ken is so sexy.')
+	#send_message('2012500807', 'Ken is so sexy.')
 	# viewCount = statistics.find()[0]
 	# updatedCount = int(viewCount['viewCount'])+1
 	# statistics.update({ "identifier" : "69" }, { "$set" : { "viewCount": updatedCount }}, upsert=False)
