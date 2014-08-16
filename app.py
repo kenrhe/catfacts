@@ -26,7 +26,7 @@ def index():
 	#send_message('2012500807', 'Ken is so sexy.')
 	return render_template("index.html")
 
-@app.route('/create')
+@app.route('/create', methods=['GET','POST'])
 def create():
 	if request.method == 'POST':
 		list_name=request.form['list_name']
