@@ -1,4 +1,8 @@
 
 .page-header { text-align: center; }
-.main-container { max-width: 1048px; margin: 0 auto; margin-top: 5%; }
 #phone-input { margin-bottom: 1%; }
+.create-box { max-width: 330px; margin: 0 auto; }
+.create-box { max-width: 330px; margin: 0 auto; }
+.main-container { max-width: 1048px; margin: 100px auto 0; }
+.main-container .create-box .btn { width: 100%; text-transform: uppercase; }
+.main-container .create-box form input { text-align: center; width: 100%; padding: 3%; border-radius: 6px; margin-bottom: 1%; border: 1px solid #ccc; }
