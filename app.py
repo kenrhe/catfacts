@@ -47,8 +47,7 @@ def create():
 				facts_db.insert(fact_list);
 			elif request.form['submit'] == 'add':
 				list_name = request.form['list']
-				fact = {uuid.uuid4():request.form['fact']}
-				facts_db.update({'name':list_name}, {'$push': {'facts':fact}}, True)
+				facts_db.update({'name':list_name}, {'$push': {'facts':{uuid.uuid4():request.form['fact']}}}, True)
 			return redirect('/create')
 		except Exception, e:
 			print "[EXCEPTION ERROR] " + e
