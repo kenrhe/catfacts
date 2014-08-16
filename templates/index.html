@@ -14,18 +14,17 @@
 <h3>Random facts list
 	<small>
 		<form>
-    		Phone # <input type="text" name="phonenum">
+    		Phone # <input id="phone-input" type="text" name="phonenum">
     	</form>
 	</small>
 </h3>
 
 	<table class="table">
 	  <tr>
-	    <td><strong>#</strong></td>
-	    <td><strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</strong> </td>
+	    <td><strong></strong> </td>
 	    <td>
 	    	<form>
-	    		Phone # <input type="hidden" name="phonenum-hidden">
+	    		<input type="hidden" name="phonenum-hidden">
 	    	</form>
 	    </td>
 	    <td><button type="button" class="btn">Send</button></td>
@@ -36,7 +35,7 @@
 	    <td>{{ fact['text'] }}</td>
 	    <td>
 	    	<form>
-	    		Phone # <input type="hidden" name="phonenum-hidden">
+	    		<input type="hidden" name="phonenum-hidden">
 	    	</form>
 	    </td>
 	    <td><button type="button" class="btn">Send</button></td>
@@ -52,7 +51,9 @@
  <script>
  	(function($) {
 
- 		
- 		
+		$( '#phone-input' ).change(function() {
+			console.log("input area changed");
+		});
+
  	})(jQuery)
  </script>
