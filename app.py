@@ -32,7 +32,7 @@ def index():
 @app.route('/send', methods=['POST'])
 def send():
 	if request.method == 'POST':
-
+		pass
 
 @app.route('/create', methods=['GET','POST'])
 def create():
