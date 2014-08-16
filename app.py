@@ -30,7 +30,7 @@ def index():
 		col_index = random.randint(0, doc_count)
 		return render_template("index.html", facts=facts_db.find()[col_index]['facts'])
 	except Exception, e:
-		print "[ERROR] " + e
+		print "[EXCEPTION ERROR] " + e
 
 @app.route('/send', methods=['POST'])
 def send():
