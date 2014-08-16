@@ -32,15 +32,6 @@ def index():
 	except Exception, e:
 		print "[EXCEPTION ERROR] " + e
 
-@app.route('/send', methods=['POST'])
-def send():
-	if request.method == 'POST':
-		fact = request.form['selected_fact']
-		number = request.form['phone_number']
-		send_message(number, fact)
-		return redirect('/')
-	return redirect('/')
-
 @app.route('/create', methods=['GET','POST'])
 def create():
 	if request.method == 'POST':
@@ -56,6 +47,19 @@ def create():
 		except Exception, e:
 			print "[EXCEPTION ERROR] " + e
 	return render_template('create.html', facts=facts_db.find())
+
+@app.route('/about', methods=['GET'])
+def about():
+	return render_template('about.html')
+
+@app.route('/send', methods=['POST'])
+def send():
+	if request.method == 'POST':
+		fact = request.form['selected_fact']
+		number = request.form['phone_number']
+		send_message(number, fact)
+		return redirect('/')
+	return redirect('/')
 
 def send_message(to_number, body_message):
     client = TwilioRestClient(ACCOUNT_SID, AUTH_TOKEN)

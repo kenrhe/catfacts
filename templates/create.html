@@ -15,13 +15,13 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">Facts Me Up!</a>
+			<a class="navbar-brand" href="/">Facts Me Up!</a>
 		</div>
 		<div class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
 				<li><a href="/">Home</a></li>
 				<li class="active"><a href="/create">Create</a></li>
-				<li><a href="#">About Us</a></li>
+				<li><a href="/about">About Us</a></li>
 			</ul>
 		</div>
 	</div>
@@ -35,7 +35,7 @@
 			<input class="btn" name="submit" type="submit" value="create">
 		</form>
 		<form name="create_fact" action="/create" method="POST">
-			<select name="list" class="selectpicker">
+			<select name="list" class="form-control">
 				{% for fact in facts %}
 					<option value='{{ fact['name'] }}'>{{ fact['name'] }}</option>
 				{% endfor %}
