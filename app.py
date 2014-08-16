@@ -29,7 +29,7 @@ def index():
 @app.route('/create', methods=['GET','POST'])
 def create():
 	if request.method == 'POST':
-		list_name=request.form['list_name']
+		list_name=request.form['list']
 		fact=request.form['fact']
 
 		facts_db.update({'name':list_name}, {'$push' : {fact}})
