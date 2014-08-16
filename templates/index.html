@@ -58,8 +58,7 @@
 <script>
 	(function($) {
 		$( '#phone-input-global' ).change(function() {
-			$( '#phone-input').each(function() {
-				$( this ).val($( '#phone-input-global' ).val());
+			$( '#phone-input' ).val($( '#phone-input-global' ).val());
 			});
 		})
 	})(jQuery)
