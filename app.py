@@ -26,8 +26,8 @@ facts_db = db.facts
 def index():
 	#send_message('2012500807', 'Ken is so sexy.')
 	try:
-		#doc_count = facts_db.count()
-		#col_index = random.randint(0, doc_count)
+		doc_count = facts_db.count()
+		col_index = random.randint(0, doc_count)
 		return render_template("index.html")
 	except Exception, e:
 		print "[EXCEPTION ERROR] " + e
