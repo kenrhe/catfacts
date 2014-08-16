@@ -3,7 +3,11 @@
 <title>Facts Me Up!</title>
 </head>
 <body>
-<form name="input" action="/create" method="POST">
+<form name="create_list" action="/create" method="POST">
+	List: <input type="text" name="list"><br>
+	<input type="submit" value="Submit">
+</form>
+<form name="create_fact" action="/create" method="POST">
 	List: <input type="text" name="list"><br>
 	Fact: <input type="text" name="fact"><br>
 	<input type="submit" value="Submit">
