@@ -35,7 +35,14 @@ def create():
 		elif request.form['submit'] == 'add':
 			list_name = request.form['list']
 			fact_list = facts_db.find_one({'name':list_name})
+			facts_db.update({'name':list_name}, {'$set': {'facts':request.form['fact']}})
+			# list_name=request.form['list']
+			# fact={request.form['fact']}
 
+			# #facts_db.update({'name':list_name}, {'$push' : {fact}})
+			# fact_list = facts_db.find_one({'name' : list_name})
+
+			# facts_db.update({'name':list_name}, {'$set':fact})
 		return redirect('/create')
 	return render_template('create.html')
 
