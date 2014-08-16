@@ -24,7 +24,7 @@ facts_db = db.facts
 @app.route('/')
 def index():
 	#send_message('2012500807', 'Ken is so sexy.')
-	return render_template("index.html", facts=facts_db.find())
+	return render_template("index.html", facts=facts_db.find_one({'name' : 'cats'})['facts'])
 
 @app.route('/create', methods=['GET','POST'])
 def create():
