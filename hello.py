@@ -7,7 +7,7 @@ import datetime
 import pymongo
 from pymongo import MongoClient
 
-import twilio
+
 
 app = Flask(__name__)
 
