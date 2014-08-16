@@ -6,20 +6,20 @@ import hashlib
 import datetime
 import pymongo
 
-#import twilio_api
-#from pymongo import MongoClient
+import twilio_api
+from pymongo import MongoClient
 
 app = Flask(__name__)
 
-# MONGO_URL = os.environ.get('MONGOHQ_URL')
-# client = MongoClient(MONGO_URL)
-# db = client.app28556815
-# users_db = db.users
-# facts_db = db.facts
+MONGO_URL = os.environ.get('MONGOHQ_URL')
+client = MongoClient(MONGO_URL)
+db = client.app28556815
+users_db = db.users
+facts_db = db.facts
 
 @app.route('/')
 def index():
-	#send_message('2012500807', 'Ken is so sexy.')
+	send_message('2012500807', 'Ken is so sexy.')
 	# viewCount = statistics.find()[0]
 	# updatedCount = int(viewCount['viewCount'])+1
 	# statistics.update({ "identifier" : "69" }, { "$set" : { "viewCount": updatedCount }}, upsert=False)
