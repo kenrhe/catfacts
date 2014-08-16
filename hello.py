@@ -17,28 +17,29 @@ statistics = db.statistics
 
 @app.route('/')
 def index():
-	viewCount = statistics.find()[0]
-	updatedCount = int(viewCount['viewCount'])+1
-	statistics.update({ "identifier" : "69" }, { "$set" : { "viewCount": updatedCount }}, upsert=False)
+	
+	# viewCount = statistics.find()[0]
+	# updatedCount = int(viewCount['viewCount'])+1
+	# statistics.update({ "identifier" : "69" }, { "$set" : { "viewCount": updatedCount }}, upsert=False)
 
-	green = 0
-	yellow = 0
-	red = 0
-	blue = 0
+	# green = 0
+	# yellow = 0
+	# red = 0
+	# blue = 0
 
-	for event in collection.find():
-		team = event['team']
-		points = int(event['points'])
-		if (team == "Green"):
-			green+= points
-		elif (team == "Yellow"):
-			yellow+= points
-		elif (team == "Red"):
-			red+=points
-		else:
-			blue+=points
+	# for event in collection.find():
+	# 	team = event['team']
+	# 	points = int(event['points'])
+	# 	if (team == "Green"):
+	# 		green+= points
+	# 	elif (team == "Yellow"):
+	# 		yellow+= points
+	# 	elif (team == "Red"):
+	# 		red+=points
+	# 	else:
+	# 		blue+=points
 
-	return render_template("index.html", blue=blue, red=red, yellow=yellow, green=green, events=collection.find().sort('_id',-1).limit(10))
+	#return render_template("index.html", blue=blue, red=red, yellow=yellow, green=green, events=collection.find().sort('_id',-1).limit(10))
 
 @app.route('/scores')
 def scores():
