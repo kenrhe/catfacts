@@ -1,0 +1,82 @@
+<html>
+<head>
+	<title>Admin Panel</title>
+	<link rel="icon" type="image/png" href="/static/icon.png" />
+
+	<link rel="stylesheet" type="text/css" href="/static/style.css">
+</head>
+<body>
+	<a href="/logout">Logout</a>
+	<center>
+		View Count: {{ viewCount }} <br>
+		{{ error }}
+		<p> Event Count: {{ eventCount }} total events </p>
+		<p>If there is a problem, e-mail me (Kenneth Rhee) at hwarhe@bergen.org</p>
+		<form name="input" action="/admin" method="POST">
+			Enter the event name, scores made, team color, and comment: <br>
+			Event: <input type="text" name="event"><br>
+			Score: <input type="text" name="points"><br>
+			Team Color: 
+			<select name="team">
+				<option value="Blue">Blue</option>
+				<option value="Green">Green</option>
+				<option value="Red">Red</option>
+				<option value="Yellow">Yellow</option>
+			</select><br>
+			Commment: [Winner name, etc.] <input type="text" name="comment">
+			<br>
+			<input type="submit" value="Submit">
+		</form>
+	</center>
+	<table border="1">
+		<tr>
+			<td> Event Name </td>
+			<td> Points </td>
+			<td> Team </td>
+			<td> Comment </td>
+		</tr>
+		{% for event in events %}
+		<tr>
+			<form name="event" action="/change" method="POST">
+				<td> <input type="text" name="event" value="{{ event['event'] }}" readonly> </td>
+				<td> 
+					<input type="text" name="points" value="{{ event['points'] }}"> 
+				</td>
+				<td> 			
+					<select name="team">
+						{% if event['team'] == 'Blue' %}
+						<option value="Blue" selected>Blue</option>
+						{% else %}
+						<option value="Blue">Blue</option>
+						{% endif %}
+
+						{% if event['team'] == 'Green' %}
+						<option value="Green" selected>Green</option>
+						{% else %}
+						<option value="Green">Green</option>
+						{% endif %}
+
+						{% if event['team'] == 'Red' %}
+						<option value="Red" selected>Red</option>
+						{% else %}
+						<option value="Red">Red</option>
+						{% endif %}
+
+						{% if event['team'] == 'Yellow' %}
+						<option value="Yellow" selected>Yellow</option>
+						{% else %}
+						<option value="Yellow">Yellow</option>
+						{% endif %}
+					</select>
+				</td>
+				<td>
+					<input type="text" name="comment" value="{{ event['comment'] }}">
+				</td>
+				<td> <input type="submit" value="CHANGE" name="submit"> </td>
+				<td> <input type="submit" value="REMOVE" name="submit"></td>
+			</form>
+		</tr>
+		{% endfor %}
+	</table>
+</body>
+</html>
