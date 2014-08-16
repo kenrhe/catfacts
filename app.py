@@ -8,6 +8,11 @@ import pymongo
 
 import catfacts.twilioAPI
 from pymongo import MongoClient
+from twilio.rest import TwilioRestClient
+
+ACCOUNT_SID = "ACcf72ea65363c8e7585acf4ae877b49ab"
+AUTH_TOKEN = "e61112fee5d7c53cf5983ed9f5c97115"
+FROM_NUMBER = "+12015618743"
 
 app = Flask(__name__)
 
@@ -42,6 +47,14 @@ def index():
 	# 		blue+=points
 
 	return render_template("index.html")
+
+def send_message(to_number, body_message):
+    client = TwilioRestClient(ACCOUNT_SID, AUTH_TOKEN)
+    client.messages.create(
+        to = to_number,
+        from_= FROM_NUMBER,
+        body= body_message
+    )
 
 # @app.route('/scores')
 # def scores():
