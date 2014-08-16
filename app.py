@@ -32,7 +32,7 @@ def create():
 		if request.form['submit'] == 'create_list':
 			fact_list = {'name':request.form['list']}
 			facts_db.insert(fact_list);
-		else if request.method == 'create_fact':
+		elif request.method == 'create_fact':
 			list_name = request.form['list']
 			fact_list = facts_db.find_one({'name':list_name})
 
