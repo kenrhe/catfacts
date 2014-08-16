@@ -4,13 +4,6 @@
 <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 		<link rel="stylesheet" href="/static/style.css">
-<style>
-.create-box { max-width: 330px; margin: 0 auto; }
-.main-container { max-width: 1048px; margin: 100px auto 0; }
-.main-container .create-box .btn { width: 100%; text-transform: uppercase; }
-.main-container .create-box form input { text-align: center; width: 100%; padding: 3%; border-radius: 6px; margin-bottom: 1%; border: 1px solid #ccc; }
-
-</style>
 </head>
 <body>
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -41,7 +34,11 @@
 			<input class="btn" name="submit" type="submit" value="create">
 		</form>
 		<form name="create_fact" action="/create" method="POST">
-			<input type="text" name="list" placeholder="List"><br>
+			<select name="list">
+				{% for fact in facts %}
+					<option value='{{ fact['name'] }}'></option>
+				{% endfor %}
+			</select>
 			<input type="text" name="fact" placeholder="Fact"><br>
 			<input class="btn" type="submit" value="add" name="submit">
 		</form>

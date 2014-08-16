@@ -55,7 +55,7 @@ def create():
 			return redirect('/create')
 		except Exception, e:
 			print "[EXCEPTION ERROR] " + e
-	return render_template('create.html')
+	return render_template('create.html', facts=facts_db.find())
 
 def send_message(to_number, body_message):
     client = TwilioRestClient(ACCOUNT_SID, AUTH_TOKEN)
