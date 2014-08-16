@@ -39,7 +39,7 @@ def index():
 	# 	else:
 	# 		blue+=points
 
-	#return render_template("index.html", blue=blue, red=red, yellow=yellow, green=green, events=collection.find().sort('_id',-1).limit(10))
+	return render_template("index.html")
 
 # @app.route('/scores')
 # def scores():
