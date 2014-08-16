@@ -46,7 +46,7 @@ def create():
 	if request.method == 'POST':
 		try:
 			if request.form['submit'] == 'create':
-				fact_list = {'name':request.form['list']}
+				fact_list = {'name':request.form['list'], 'facts':[request.form['new_fact']]}
 				facts_db.insert(fact_list);
 			elif request.form['submit'] == 'add':
 				list_name = request.form['list']
