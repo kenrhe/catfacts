@@ -27,7 +27,7 @@ def index():
 	#send_message('2012500807', 'Ken is so sexy.')
 	doc_count = facts_db.count()
 	col_index = random.randint(0, doc_count)
-	return render_template("index.html", facts=facts_db.find()[col_index])
+	return render_template("index.html", facts=facts_db.find()[col_index]['facts'])
 
 @app.route('/send', methods=['POST'])
 def send():
