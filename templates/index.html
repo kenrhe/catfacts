@@ -4,6 +4,7 @@
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 		<link rel="stylesheet" href="/static/style.css">
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	</head>
 	<body>
 		<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -33,17 +34,23 @@
 			</div>
 			{{ message }}
 			<h3>Random facts list</h3>
-			<form method="post" action='/send' name='send'>
-				Phone # <input id="phone-input" type="text" name="phonenum">
 				<table class="table">
 			  		{% for fact in facts %}
-			  		<tr>
-				    	<td><input name='fact_text' value='{{ fact }}'></td>
-				    	<td><input name="submit" type="submit" class="btn" value="send"></td>
-				  	</tr>
+			  		<form method="post" action='/send' name='send'>
+			  			<input name='selected_fact' type='hidden' value='{{ fact }}'>
+				  		<tr>
+					    	<td>{{ fact }}</td>
+					    	<td>Phone # <input id="phone-input" type="text" name="phone_number"></td>
+					    	<td><input name="submit" type="submit" class="btn" value="send"></td>
+					  	</tr>
+				  	</form>
 				  	{% endfor %}
 				</table>
-			</form>
+			
 		</div>
 	</body>
 </html>
+
+<script>
+$
+</script>

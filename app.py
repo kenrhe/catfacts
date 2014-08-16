@@ -35,7 +35,9 @@ def index():
 @app.route('/send', methods=['POST'])
 def send():
 	if request.method == 'POST':
-		fact = 
+		fact = request.form['selected_fact']
+		number = request.form['phone_number']
+		send_message(number, fact)
 		return redirect('/')
 	return redirect('/')
 
