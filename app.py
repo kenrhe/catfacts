@@ -6,7 +6,6 @@ import hashlib
 import datetime
 import pymongo
 
-import catfacts.twilioAPI
 from pymongo import MongoClient
 from twilio.rest import TwilioRestClient
 
