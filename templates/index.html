@@ -3,8 +3,22 @@
 <title>Facts Me Up!</title>
 </head>
 <body>
-  <h2>Welcome to Facts Me Up!</h2>
+<h2>Welcome to Facts Me Up!</h2>
 
-  <h3>Random facts list</h3>
+<h3>Random facts list</h3>
+	<table>
+	  <tr>
+	    <td> <strong>Event Name</strong> </td>
+	    <td> <strong>Points</strong> </td>
+	    <td> <strong>Team</strong> </td>
+	    <td> <strong>#</strong> </td>
+	  </tr>
+	  {% for fact in facts %}
+	  <tr>
+	    <td>{{ fact['number'] }}</td>
+	    <td>{{ fact['text'] }}</td>
+	  </tr>
+	  {% endfor %}
+	</table>
 </body>
 </html>
